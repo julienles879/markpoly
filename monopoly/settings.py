@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-pp&2)ssl@i=r3#uasiha^blb1nt&go*1$-4lsshm4w+mn&8k)3
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'olivierblandin.fr',
-    'markpoly.git initolivierblandin.fr' 
+    'markpoly.olivierblandin.fr',
+    'olivierblandin.fr'
 ]
 
 

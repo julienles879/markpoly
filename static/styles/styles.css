@@ -301,3 +301,22 @@ button:hover {
     padding: 0;
   }
   
+  .rule-section {
+    text-align: center;
+}
+
+.rule-section table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.rule-section td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.rule-section th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
