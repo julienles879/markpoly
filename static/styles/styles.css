@@ -1,0 +1,303 @@
+/* Resetting default styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+    display: contents;
+}
+
+body {
+    font-family: 'Mundial Thin', sans-serif;
+}
+
+h2 {
+    font-family: 'Mundial Regular', sans-serif;
+    /* Add any additional styles for h2 here */
+}
+
+/* Global Styles */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.navbar {
+    background-color: #77bb41;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 17vh; /* Ajustez la hauteur selon vos besoins et ajoutez "px" */
+    text-decoration: none;
+    color: black;
+}
+
+.nav-links {
+    display: flex;
+    align-items: stretch; /* Ensures the nav-links take up the full height */
+    margin-left: auto; /* Move "Rules" to the right */
+    padding: 10px; /* Ajustez la valeur selon vos besoins */
+    text-decoration: none;
+    color: black;
+}
+
+
+.nav-links a[href*='rules'] {
+    flex-grow: 1; /* Makes the "Rules" link take up the remaining space */
+    display: block;
+    width: 100%; /* Makes the link take up the full width of its container */
+    text-align: right; /* Align the text to the right within the link */
+    padding: 10px; /* Add padding for better clickability */
+    text-decoration: none;
+    color: black; /* Add text color for visibility */
+}
+
+img {
+    max-width: 45vh;
+    max-height: 45vh;
+}
+
+.logo, .nav-links {
+    display: flex; 
+    align-items: center;
+}
+
+.nav-links {
+    margin-right: 10vh;
+}
+
+.container-player-form {
+    margin: 2vh;
+}
+
+.player-form button {
+    align-items: center;
+}
+
+.container-player-list {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);    
+    height: 30vh;
+    align-content: space-around;
+    margin: 5vh;
+    flex-wrap: wrap;
+    max-height: 20vh;
+    max-width: 95vh;
+}
+
+.player-list {
+    list-style: none;
+    padding: 0;
+}
+
+.player-list li {
+    margin-bottom: 10px;
+    list-style: none;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+.container-player-delete {
+    text-align: center;
+}
+
+/* Topic Styles */
+.container-topics {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    margin: 4vh;
+}
+
+.topic-list {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    height: 50vh;
+    margin-top: 5vh;
+}
+
+.topic-list li {
+    margin-bottom: 10px;
+}
+
+.topic-list a {
+    display: flex; /* Utiliser flexbox */
+    align-items: center; /* Centrer verticalement */
+    justify-content: center;
+    padding: 10px;
+    text-decoration: none;
+    background-color: #77bb41;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 7px solid white;
+}
+
+.topic-list a:hover {
+    background-color: #2f491a;
+}
+
+.topic {
+    height: 40vh;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links {
+        margin: 1vh 0;
+        justify-content: flex-end; /* Align "Rules" to the right in mobile view */
+    }
+
+    .container-topics {
+        margin: 2vh;
+    }
+}
+
+
+
+.player-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row; /* Display elements horizontally */
+    flex-wrap: wrap; /* Allow elements to wrap to the next line if space is insufficient */
+    justify-content: center;
+}
+
+.player-list li {
+    margin: 0 10px 10px 0; /* Add a margin between players */
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+button {
+    border-radius: 5px; /* Rend les boutons arrondis */
+    background-color: #77bb41; /* Définit la couleur de fond */
+    color: #fff; /* Définit la couleur du texte */
+    padding: 10px 15px; /* Ajoute un espacement intérieur pour une meilleure apparence */
+    cursor: pointer; /* Change le curseur au survol du bouton */
+    border: none; /* Supprime la bordure par défaut des boutons */
+    transition: background-color 0.3s; /* Ajoute une transition en douceur lors du survol */
+}
+
+button:hover {
+    background-color: #2f491a; /* Change la couleur de fond lors du survol */
+}
+
+.player-name {
+    font-size: 1.7em; /* Réglez la taille du texte selon vos préférences */
+    /* Ajoutez d'autres styles si nécessaire, par exemple, la couleur du texte, le gras, etc. */
+}
+
+
+.logo img {
+    max-height: 25vh; 
+    padding-top: 3vh;
+}
+
+.container-topics-a {
+    text-decoration: none;
+    color: black;
+}
+
+.container h2, .container h3, .container h4, .container p {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.container h2 {
+    font-family: 'Mundial Regular', sans-serif;
+    font-size: 2em;
+}
+
+.container h3 {
+    font-size: 1.5em;
+}
+
+.container h4 {
+    font-size: 1.2em;
+}
+
+.container p {
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+.container form {
+    margin-top: 20px;
+}
+
+.container button {
+    border: none;
+    padding: 10px 20px;
+    background-color: #77bb41;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.container button:hover {
+    background-color: #2f491a;
+}
+
+.container-rules {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin: 2vh;
+    padding: 2vh;
+    border-radius: 10px;
+}
+
+.container-details {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.marks-and-questions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Espace entre les colonnes et les lignes */
+  }
+  
+  .mark-section {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 2vh;
+  }
+  
+  .mark_question {
+    list-style: none;
+    padding: 0;
+  }
+  

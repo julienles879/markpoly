@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">    
+    <div class="navbar">
+        <div class="logo">
+            <img src="{% static 'media/logo.png' %}" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a href="{% url 'rules' %}">Rules</a>
+        </div>
+    </div>
+
+    
+    <div class="container-player-form">
+        <form class="player-form" method="post" action="{% url 'index' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="button" type="submit" {% if not show_add_button %}disabled{% endif %}>Add Player</button>
+        </form>
+    </div>    
+
+    <div class="container-player-list">
+        {% if players %}
+        <div class="player-list">
+            <ul>
+                {% for player in players %}
+                    <li>
+                        <div class="player">
+                            <span class="player-name">{{ player.name }}</span>
+                            <form class="delete-player-form" method="post" action="{% url 'index' %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="delete_player" value="{{ player.id }}">
+                                <button class="button"type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <p class="no-players">No players available.</p>
+    {% endif %}
+    </div>
+
+    <div class="container-player-delete">
+        {% if show_delete_all_button %}
+            <form class="delete-all-form" method="post" action="{% url 'index' %}">
+                {% csrf_token %}
+                <button type="submit" name="delete_all_players">Delete All Players</button>
+            </form>
+        {% endif %}
+    </div>
+    <br>
+    <div class="des">
+        <button id="generate-random-number-btn">Dice : </button>
+        <br>
+        <div id="random-number-container"></div>
+    </div>
+
+
+    <div class="container-topics">
+        <h3>Choose a Topic:</h3>
+        <ul class="topic-list">
+            {% for topic in topics %}
+                <li><a class="container-topics-a" href="{% url 'topic_detail' topic.id %}">{{ topic.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+
+
+<!-- Ajoutez le script JavaScript pour gérer le clic sur le bouton -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Sélectionnez le bouton
+    var generateRandomNumberBtn = document.getElementById('generate-random-number-btn');
+
+    // Ajoutez un gestionnaire d'événements pour le clic sur le bouton
+    generateRandomNumberBtn.addEventListener('click', function() {
+      // Faites une requête AJAX pour obtenir un nouveau nombre aléatoire depuis la vue Django
+      fetch("{% url 'random_number' %}")
+        .then(response => response.json())
+        .then(data => {
+          // Mettez à jour l'élément HTML avec le nouveau nombre aléatoire
+          document.getElementById('random-number-container').innerText = `Result : ${data.random_number}`;
+        });
+    });
+  });
+</script>
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- navbar.html -->
+<div class="navbar">
+    <div class="logo">
+        <img src="{% static 'media/logo.png' %}" alt="Logo">
+    </div>
+    <div class="nav-links">
+        <a href="{% url 'rules' %}">Rules</a>
+        <a class="container-topics-a" href="{% url 'index' %}">Home</a>
+    </div>
+</div>
+
+  <div class="container">
+    <h2 class="container-topic-name">{{ topic.name }}</h2>
+
+
+    <div class="marks-and-questions-grid">
+      {% for item in marks_with_questions %}
+        <div class="mark-section">
+          <h4>{{ item.mark.name }}</h4>
+          <ul class="mark_question">
+            {% for question in item.questions %}
+              <li>
+                <strong>Question:</strong> {{ question.text }}<br>
+                <span class="answer" style="display: none;">{{ question.answer }}</span>
+                <button class="toggle-answer-btn">Afficher la réponse</button>
+              </li>
+              <hr>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <form method="get" action="{% url 'index' %}">
+    <button type="submit">Back to Index</button>
+  </form>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+  <script>
+  function lancerDe() {
+      $.get('/lancer_de/', function(data) {
+          alert('Le résultat du lancer de dé est : ' + data.resultat);
+      });
+  }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var toggleButtons = document.querySelectorAll('.toggle-answer-btn');
+
+      toggleButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          var answerSpan = this.previousElementSibling;
+          if (answerSpan.style.display === 'none' || answerSpan.style.display === '') {
+            answerSpan.style.display = 'inline';
+            this.textContent = 'Masquer la réponse';
+          } else {
+            answerSpan.style.display = 'none';
+            this.textContent = 'Afficher la réponse';
+          }
+        });
+      });
+    });
+  </script>
+{% endblock %}

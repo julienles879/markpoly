@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta name="viewport" charset="utf-8" >
+
+    {% block stylesheet %}
+    {% include 'includes/stylesheet.html' %}
+    {% endblock stylesheet %}
+
+    <title>MarkPoly</title>
+
+  </head>
+
+  <body>
+    
+    {% block content %}
+    {% endblock %}
+
+    <script src="{% static '/scripts/scripts.js' %}"></script>
+    
+  </body>
+</html>

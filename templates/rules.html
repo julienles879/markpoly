@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">    
+    <div class="navbar">
+        <div class="logo">
+            <img src="{% static 'media/logo.png' %}" alt="Logo">
+        </div>
+        <div class="nav-links">
+            <a class="container-topics-a" href="{% url 'index' %}">Home</a>
+        </div>
+    </div>
+
+    <div class="container-rules">
+        <div class="rule-section">
+            <h2>Rules of the game:</h2>
+        </div>
+    
+        <div class="rule-section">
+            <h4>Equipment required:</h4>
+            <p>Classic Monopoly game board.</p>
+            <p>Personalized pieces representing iconic brands.</p>
+            <p>Game money with values corresponding to realistic sums of money for the brand theme.</p>
+        </div>
+    
+        <div class="rule-section">
+            <h4>Setting up the game:</h4>
+            <p>Traditional Monopoly properties are replaced by brands. Each group color represents a product category (Sport, Food, Car, Fashion, Hygiene, Digital, Internet, Furniture).</p>
+        </div>
+    
+        <div class="rule-section">
+            <h4>Initial money:</h4>
+            <p>Each player receives an initial sum of money to start the game. The sum is €20,000.</p>
+        </div>
+    
+        <div class="rule-section">
+            <h4>Flow of the game:</h4>
+        </div>
+    
+        <div class="rule-section">
+            <h4>Acquiring the marks:</h4>
+            <p>When a player lands on a brand they do not already own, they have the option of buying it. The purchase cost is determined according to the brand's notoriety.</p>
+        </div>
+    
+        <div class="rule-section">
+            <h4>Contracts and partnerships:</h4>
+            <p>Players can negotiate contracts and partnerships with each other to exchange brands.</p>
+        </div>
+    
+        <div class="rule-section">
+            <h4>Promotional events:</h4>
+            <p>Special cards can be drawn to simulate promotional events that can increase or decrease brand awareness, thus influencing the rent to be paid.</p>
+        </div>
+    
+        <div class="rule-section">
+            <h4>Brand bank:</h4>
+            <p>Unowned brands form a "brand bank". Players can buy brands from the bank if they are not already owned by other players.</p>
+        </div>
+    
+        <div class="rule-section">
+            <h4>Brand enhancement:</h4>
+            <p>Players can spend money to improve the awareness of their brands, increasing the rent that opponents have to pay.</p>
+        </div>
+    
+        <div class="rule-section">
+            <h4>End of the game:</h4>
+            <h4>The game can end in one of two ways:</h4>
+            <h4>Bankruptcy:</h4>
+            <p>If a player cannot pay his debts, he goes bankrupt and leaves the game. The last remaining player is the winner.</p>
+            <h4>Monopoly:</h4>
+            <p>The game can also end when one player succeeds in acquiring a monopoly on all the brands and thus eliminates all the other players.</p>
+        </div>
+    
+        <div class="rule-section">
+            <h4>Additional variations:</h4>
+        </div>
+    
+        <div class="rule-section">
+            <h4>Random events:</h4>
+            <p>Introduce "Event" cards that simulate unpredictable market movements, influencing the value of brands.</p>
+            <p>Adapt these rules to suit your specific vision of the game and the brands you have chosen. The aim is to create an entertaining and competitive experience while incorporating the brand theme.</p>
+        </div>
+    
+        <div class="rule-section">
+            <h3>Have fun!</h3>
+        </div>
+    </div>
+</div>
+  
+{% endblock %}

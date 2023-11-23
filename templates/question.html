@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <h1>Mark Details</h1>
+  
+  {% if error_message %}
+    <p>{{ error_message }}</p>
+  {% else %}
+    <h2>{{ mark.name }}</h2>
+    
+    {% if random_question %}
+      <p>
+        <strong>Question:</strong> {{ random_question.text }}<br>
+        <strong id="answerHeader" style="display: none;">Answer:</strong>
+        <span id="answer" style="display: none;">{{ random_question.answer }}</span>
+      </p>
+      <button id="toggleAnswer">Show Answer</button>
+    {% else %}
+      <p>No questions available for this mark.</p>
+    {% endif %}
+
+    <!-- Ajoutez le formulaire pour le bouton de redirection vers l'index -->
+    <form method="get" action="{% url 'index' %}">
+      <button type="submit">Back to Index</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("#toggleAnswer").click(function() {
+          $("#answerHeader, #answer").toggle();
+          var buttonText = $("#toggleAnswer").text() === "Show Answer" ? "Hide Answer" : "Show Answer";
+          $("#toggleAnswer").text(buttonText);
+        });
+      });
+    </script>
+  {% endif %}
+{% endblock %}
